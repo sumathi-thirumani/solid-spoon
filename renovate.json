@@ -23,15 +23,25 @@
       ]
     },
     {
+  "matchPackageNames": [
+    "bootstrap",
+    "bootstrap-vue",
+    "@bcgov/bootstrap-theme"
+  ],
+  "groupName": "Bootstrap compatibility"
+},
+    {
       "description": "Pin Vue CLI packages to 5.0.9",
       "matchManagers": [
         "npm"
       ],
       "matchPackageNames": [
-        "@vue/cli-plugin-typescript",
-        "@vue/cli-service",
         "@vue/cli-plugin-babel",
-        "@vue/cli-plugin-eslint"
+        "@vue/cli-plugin-eslint",
+        "@vue/cli-plugin-router",
+        "@vue/cli-plugin-typescript",
+        "@vue/cli-plugin-vuex",
+        "@vue/cli-service"
       ],
       "allowedVersions": "5.0.9"
     },
