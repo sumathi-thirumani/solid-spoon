@@ -1,0 +1,149 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Repository-specific Renovate configuration with approved dependency versions.",
+  "extends": [
+    "github>bcgov/renovate-config"
+  ],
+  "pip-compile": {
+    "managerFilePatterns": [
+      "/(^|/)requirements\\.txt$/"
+    ]
+  },
+  "pip_requirements": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "description": "Regenerate npm lock files after dependency updates",
+      "matchManagers": [
+        "npm"
+      ],
+      "postUpdateOptions": [
+        "npmInstallTwice"
+      ]
+    },
+    {
+      "description": "Pin Vue CLI packages to 5.0.9",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "@vue/cli-plugin-typescript",
+        "@vue/cli-service",
+        "@vue/cli-plugin-babel",
+        "@vue/cli-plugin-eslint"
+      ],
+      "allowedVersions": "5.0.9"
+    },
+    {
+      "description": "Pin TypeScript ESLint plugin to 8.70.0",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "@typescript-eslint/eslint-plugin"
+      ],
+      "allowedVersions": "8.70.0"
+    },
+    {
+      "description": "Pin Axios to 0.28.1",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "axios"
+      ],
+      "allowedVersions": "0.28.1"
+    },
+    {
+      "description": "Pin ESLint to 10.10.0",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "eslint"
+      ],
+      "allowedVersions": "10.10.0"
+    },
+    {
+      "description": "Pin Vue TypeScript ESLint configuration to 14.9.0",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "@vue/eslint-config-typescript"
+      ],
+      "allowedVersions": "14.9.0"
+    },
+    {
+      "description": "Pin Vue ESLint plugin to 7.14.0",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "eslint-plugin-vue"
+      ],
+      "allowedVersions": "7.14.0"
+    },
+    {
+      "description": "Pin Vuetify Vue CLI plugin to 2.0.9",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "vue-cli-plugin-vuetify"
+      ],
+      "allowedVersions": "2.0.9"
+    },
+    {
+      "description": "Pin BootstrapVue to 2.12.2",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "bootstrap-vue"
+      ],
+      "allowedVersions": "2.12.2"
+    },
+    {
+      "description": "Pin Showdown to 1.9.1",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "showdown"
+      ],
+      "allowedVersions": "1.9.1"
+    },
+    {
+      "description": "Pin save package to 2.4.0",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "save"
+      ],
+      "allowedVersions": "2.4.0"
+    },
+    {
+      "description": "Pin Vue Resource to 1.5.3",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "vue-resource"
+      ],
+      "allowedVersions": "1.5.3"
+    },
+    {
+      "description": "Pin Moment Timezone to 0.5.34",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "moment-timezone"
+      ],
+      "allowedVersions": "0.5.34"
+    }
+  ]
+}
