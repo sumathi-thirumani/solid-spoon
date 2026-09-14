@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Repository-specific Renovate configuration with approved dependency versions.",
   "extends": [
-    "github>bcgov/renovate-config"
+    "github>bcgov/renovate-config#2026.9.9"
   ],
   "pip-compile": {
     "managerFilePatterns": [
