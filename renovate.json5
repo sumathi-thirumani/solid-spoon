@@ -1,0 +1,261 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Repository-specific Renovate config. Extends the shared bcgov/renovate-config preset. Downstream repos should reference this file for consistent update management.",
+  "extends": [
+    "github>bcgov/renovate-config#2026.8.18"
+  ],
+  "pip-compile": {
+    "managerFilePatterns": [
+      "/(^|/)requirements\\.txt$/"
+    ]
+  },
+  "pip_requirements": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "description": "Regenerate npm lockfiles consistently",
+      "matchManagers": ["npm"],
+      "postUpdateOptions": [
+        "npmInstallTwice"
+      ]
+    },
+    // ==========================================================
+    // NPM / Vue
+    // ==========================================================
+    {
+      "description": "Vue CLI ecosystem",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "@vue/cli-plugin-babel",
+        "@vue/cli-plugin-eslint",
+        "@vue/cli-plugin-router",
+        "@vue/cli-plugin-typescript",
+        "@vue/cli-plugin-vuex",
+        "@vue/cli-service"
+      ],
+      "groupName": "Vue CLI",
+      "groupSlug": "vue-cli"
+    },
+
+    {
+      "description": "Vue core ecosystem",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "vue",
+        "vue-template-compiler",
+        "vue-router",
+        "vuex",
+        "vuex-class",
+        "vuex-module-decorators",
+        "vue-class-component",
+        "vue-property-decorator"
+      ],
+      "groupName": "Vue core",
+      "groupSlug": "vue-core"
+    },
+
+    {
+      "description": "Vue plugins",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "vue-axios",
+        "vue-cookies",
+        "vue-resource",
+        "vue-fontawesome",
+        "vue-fontawesome-icon",
+        "vue-cli-plugin-vuetify",
+        "vuetify"
+      ],
+      "groupName": "Vue plugins",
+      "groupSlug": "vue-plugins"
+    },
+
+    {
+      "description": "ESLint and TypeScript linting",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "eslint",
+        "eslint-plugin-vue",
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
+        "@vue/eslint-config-typescript"
+      ],
+      "groupName": "ESLint and TypeScript linting",
+      "groupSlug": "eslint-typescript"
+    },
+
+    {
+      "description": "TypeScript tooling",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "typescript",
+        "ts-loader"
+      ],
+      "groupName": "TypeScript",
+      "groupSlug": "typescript"
+    },
+
+    {
+      "description": "Jest tooling",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "jest",
+        "@types/jest",
+        "ts-jest"
+      ],
+      "groupName": "Jest",
+      "groupSlug": "jest"
+    },
+
+    {
+      "description": "Sass tooling",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "sass",
+        "sass-loader"
+      ],
+      "groupName": "Sass",
+      "groupSlug": "sass"
+    },
+
+    {
+      "description": "Bootstrap ecosystem",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "bootstrap",
+        "bootstrap-vue",
+        "@bcgov/bootstrap-theme"
+      ],
+      "groupName": "Bootstrap",
+      "groupSlug": "bootstrap"
+    },
+
+    {
+      "description": "Axios ecosystem",
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "axios",
+        "axios-auth-refresh",
+        "vue-axios"
+      ],
+      "groupName": "Axios",
+      "groupSlug": "axios"
+    },
+
+    // ==========================================================
+    // PYTHON
+    // ==========================================================
+
+    {
+      "description": "FastAPI ecosystem",
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": [
+        "fastapi",
+        "starlette",
+        "pydantic",
+        "pydantic-core",
+        "annotated-doc",
+        "annotated-types",
+        "typing-inspection",
+        "anyio"
+      ],
+      "groupName": "FastAPI",
+      "groupSlug": "python-fastapi"
+    },
+
+    {
+      "description": "Python database ecosystem",
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": [
+        "sqlalchemy",
+        "alembic",
+        "fastapi-sqlalchemy",
+        "psycopg2-binary",
+        "greenlet",
+        "mako",
+        "markupsafe"
+      ],
+      "groupName": "Python database",
+      "groupSlug": "python-database"
+    },
+
+    {
+      "description": "Python authentication and cryptography",
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": [
+        "cryptography",
+        "bcrypt",
+        "pynacl",
+        "passlib",
+        "pyjwt",
+        "python-jose",
+        "ecdsa",
+        "rsa",
+        "pyasn1",
+        "cffi",
+        "pycparser"
+      ],
+      "groupName": "Python authentication and cryptography",
+      "groupSlug": "python-auth-crypto"
+    },
+
+    {
+      "description": "Python HTTP ecosystem",
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": [
+        "requests",
+        "urllib3",
+        "certifi",
+        "charset-normalizer",
+        "idna"
+      ],
+      "groupName": "Python HTTP",
+      "groupSlug": "python-http"
+    },
+
+    {
+      "description": "Python ASGI server",
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": [
+        "uvicorn",
+        "h11"
+      ],
+      "groupName": "Uvicorn",
+      "groupSlug": "python-uvicorn"
+    },
+
+    {
+      "description": "Python data processing",
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": [
+        "pandas",
+        "numpy",
+        "openpyxl",
+        "et-xmlfile",
+        "python-dateutil",
+        "pytz",
+        "tzdata"
+      ],
+      "groupName": "Python data processing",
+      "groupSlug": "python-data"
+    },
+
+    {
+      "description": "Python testing",
+      "matchManagers": ["pip_requirements"],
+      "matchPackageNames": [
+        "pytest",
+        "pluggy",
+        "iniconfig",
+        "packaging",
+        "pygments",
+        "colorama",
+        "exceptiongroup",
+        "tomli"
+      ],
+      "groupName": "Python testing",
+      "groupSlug": "python-testing"
+    }
+  ]
+}
